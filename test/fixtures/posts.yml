@@ -1,0 +1,15 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: MyString
+  photo: MyString
+  description: MyString
+  when_went: 2023-06-05 12:38:01
+  user: one
+
+two:
+  title: MyString
+  photo: MyString
+  description: MyString
+  when_went: 2023-06-05 12:38:01
+  user: two

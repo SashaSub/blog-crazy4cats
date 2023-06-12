@@ -1,0 +1,33 @@
+<div class="d-inline-block">
+
+<p>
+<%= render @post %>
+</p>
+
+<div class="d-flex">
+  <% Post::Kinds.each do |kind| %>
+    <%= button_to "#{Post::KindsSpanish[kind]}", new_user_reaction_path(post_id: @post.id, kind: kind), method: :post, class:"reactions" %>
+  <% end %>
+</div>
+
+<div class="my-3">
+  <%= render 'comments/form' %>
+</div>
+
+<div class="d-flex">
+  <% if user_signed_in? %> 
+    <% if current_user.id == @post.user_id %>
+      <%= link_to "Edit this post", edit_post_path(@post), class:"btn btn-success m-3 " %>  <br>      
+      <%= button_to "Destroy this post", @post, method: :delete, class:"opcionButton" %>
+    <% end %>
+  <% end %>  
+  <%= link_to "Back to posts", posts_path, class:"btn btn-secondary m-3" %>
+</div>
+
+  <p class="fs-3">Our readers thoughts: </p>
+  <% if @post.comments.any? %>
+    <%= render @post.comments %>
+  <% else %>      
+      <p class="fw-bold">No comments yet. Be the first!</p>
+  <% end %>
+</div>

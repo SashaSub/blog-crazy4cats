@@ -1,0 +1,33 @@
+<nav class="navbar navbar-expand-lg bg-body-tertiary bg-dark" data-bs-theme="dark">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">Crazy4Cats</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav ms-auto">
+        <a class="nav-link active" aria-current="page" href="/">Posts</a>        
+        <li class="nav-item dropdown ">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <% if user_signed_in? %>              
+                Hola <%= current_user.name %>                          
+            <% else %>
+                Dale registrarte o conectate, no te cuesta nada
+            <% end %>
+          </a>
+        <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            <% if user_signed_in? %>
+                <li><%= button_to 'Cerrar sesión', destroy_user_session_path, class:
+            'dropdown-item', method: :delete %></li>
+            <% else %>
+                <li><%= link_to 'Iniciar sesión', new_user_session_path, class:
+            'dropdown-item'%></li>
+                <li><hr class="dropdown-divider"></li>
+                <li><%= link_to 'Registro', new_user_registration_path, class:
+            'dropdown-item'%></li>
+            <% end %>
+      </div>
+    </div>
+  </div>
+</nav>
+

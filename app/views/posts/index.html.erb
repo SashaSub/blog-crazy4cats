@@ -1,0 +1,19 @@
+<div class="container">
+  <h1>Posts</h1>
+  <%= link_to "New post", new_post_path, class:"btn btn-secondary" %>
+ 
+  <div id="posts">  
+    <div class="row my-2">
+      <% @posts.each do |post| %>
+        <div class="col-4">
+          <%= render post %>  
+          <%= link_to "Show this post", post, class: "btn btn-secondary" %>        
+        </div>        
+      <% end %>
+    </div>
+  </div>
+</div>
+
+
+
+
