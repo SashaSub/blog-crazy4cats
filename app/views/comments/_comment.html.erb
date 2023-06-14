@@ -1,4 +1,8 @@
 <p>
-  Comment from <span class="fw-bold"><%= comment.user.name %></span>:
+  <% if comment.user_id %>
+    Comment from <span class="fw-bold"><%= comment.user.name %></span>:
+  <% else %>
+    Comment from <span class="fw-bold">Anonymous </span>:
+  <% end %>
   <%= comment.content %>
 </p> 
